@@ -14,16 +14,16 @@ $ pip install -t lib beautifulsoup4
 ```
 
 ### mailaddress.yaml
-- Rename *mailaddress.yaml.sample* to *mailaddress.yaml*
+- Rename *mailaddress.yaml.sample* to *mailaddress.yaml*
 - Open mailaddrss.yaml and set *ADDR_FROM* and *ADDR_RCPT*.
-  - ADDR_FROM: Sender email address
+  - ADDR_FROM: Sender email address
   - ADDR_RCPT: Recipient email addresses
 - You must register your sender emails as authorized senders. See [who can send email](https://cloud.google.com/appengine/docs/standard/python/mail/#who_can_send_mail).
 - You can insert multiple addresses in ADDR_RCPT, use a semi-colon (;) to separate each address.
 
 ### settings.py
 Set the query parameters.  
-https://www.radishbo-ya.co.jp/shop/app/information/palette_forecast/
+https://www.radishbo-ya.co.jp/shop/app/information/palette_forecast/
 
 ## Deploy
 ```bash
