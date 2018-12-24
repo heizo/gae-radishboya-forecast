@@ -1,0 +1,16 @@
+__pycache__
+*.py[co]
+.python-version
+.pylintrc
+.env
+.venv
+env
+venv
+.git
+.gitignore
+.gcloudignore
+.vscode
+.DS_Store
+tests
+README.md
+mailaddress.yaml.sample

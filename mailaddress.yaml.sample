@@ -1,0 +1,4 @@
+# Notification mail
+env_variables:
+  ADDR_FROM: "YOUR_MAIL_ADDRESS"
+  ADDR_RCPT: "ADDR1;ADDR2..."
