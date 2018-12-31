@@ -42,7 +42,7 @@ class Forecast(object):
     @exception
     def getDeliveryDate(self):
         e = self._getDiv("palette_delivery_info_heading")
-        return re.sub(r"\s20[0-9][0-9].*$", "", e.text.strip())
+        return re.sub(r"^\D+", "", e.contents[0].string).strip()
 
     @exception
     def getUpdatedDate(self):
