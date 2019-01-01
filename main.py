@@ -92,7 +92,7 @@ class UrlFetch(webapp2.RequestHandler):
         delivery_date = fc.getDeliveryDate()
         updated_date = fc.getUpdatedDate()
         if delivery_date is None or updated_date is None:
-            self.response.out.write("parse error")
+            self.response.out.write("no info.")
             return
 
         #update check
