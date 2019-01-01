@@ -34,40 +34,30 @@ def exception(func):
 
 class Forecast(object):
     def __init__(self, html):
-        self.bs = BeautifulSoup(html, "html.parser")
-
-    def _getDiv(self, cl):
-        return self.bs.find("div", class_=cl)
+        bs = BeautifulSoup(html, "html.parser")
+        self.item = bs.find("li", class_="palette_delivery_info_content_item")
 
     @exception
     def getDeliveryDate(self):
-        e = self._getDiv("palette_delivery_info_heading")
+        e = self.item.find("div", class_="palette_delivery_info_heading")
         return re.sub(r"^\D+", "", e.contents[0].string).strip()
 
     @exception
     def getUpdatedDate(self):
-        e = self._getDiv("palette_delivery_info_heading")
+        e = self.item.find("div", class_="palette_delivery_info_heading")
         return e.span.text.strip()
 
     @exception
     def getName(self):
-        e = self._getDiv("palette_delivery_item_heading")
+        e = self.item.find("div", class_="palette_delivery_item_heading")
         return e.text.strip()
 
     @exception
-    def _getItemHead(self):
-        e = self._getDiv("palette_delivery_item_content")
-        return e.p.text
-
-    @exception
-    def _getItemList(self):
-        e = self._getDiv("palette_delivery_item_content")
-        return [s.text for s in e.find_all("li")]
-
     def getItem(self):
+        e = self.item.find("div", class_="palette_delivery_item_content")
         return {
-            "head": self._getItemHead(),
-            "list": self._getItemList()
+            "head": e.p.text.strip(),
+            "list": [s.text.strip() for s in e.find_all("li")]
         }
 
 def fetch_forecast():
