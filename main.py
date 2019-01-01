@@ -29,7 +29,7 @@ def exception(func):
         try:
             return func(*args, **kwargs)
         except AttributeError as e:
-            logger.exception("Caught exception: %s", str(e))
+            logger.error("Caught exception: %s", str(e))
             return None
     return wrapper
 
