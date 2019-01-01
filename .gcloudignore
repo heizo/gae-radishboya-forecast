@@ -12,5 +12,6 @@ venv
 .vscode
 .DS_Store
 tests
+test_runner.py
 README.md
 mailaddress.yaml.sample
