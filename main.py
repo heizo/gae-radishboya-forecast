@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
-from logging import getLogger, DEBUG
+import logging
 from urllib import urlencode
 import webapp2
 from google.appengine.ext.webapp import template
@@ -11,8 +11,9 @@ from google.appengine.api import mail
 from bs4 import BeautifulSoup
 import settings
 
-logger = getLogger(__name__)
-logger.setLevel(DEBUG)
+logging.basicConfig()
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 
 class Pallet(ndb.Model):
