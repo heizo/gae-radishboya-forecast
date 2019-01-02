@@ -38,15 +38,20 @@ class Forecast(object):
         bs = BeautifulSoup(html, "html.parser")
         self.item = bs.find("li", class_="palette_delivery_info_content_item")
 
+    def _get_info_heading(self):
+        return self.item.find("div", class_="palette_delivery_info_heading")
+
     @exception
     def getDeliveryDate(self):
-        e = self.item.find("div", class_="palette_delivery_info_heading")
-        return re.sub(r"^\D+", "", e.contents[0].string).strip()
+        e = self._get_info_heading()
+        if e is not None:
+            return re.sub(r"^\D+", "", e.contents[0].string).strip()
 
     @exception
     def getUpdatedDate(self):
-        e = self.item.find("div", class_="palette_delivery_info_heading")
-        return e.span.text.strip()
+        e = self._get_info_heading()
+        if e is not None:
+            return e.span.text.strip()
 
     @exception
     def getName(self):
