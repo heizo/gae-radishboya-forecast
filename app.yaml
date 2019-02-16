@@ -9,3 +9,7 @@ handlers:
 
 includes:
 - mailaddress.yaml
+
+automatic_scaling:
+  min_idle_instances: automatic
+  max_idle_instances: 1
