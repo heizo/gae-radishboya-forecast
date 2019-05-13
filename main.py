@@ -74,6 +74,7 @@ def fetch_forecast():
             return result.content
     except urlfetch.Error:
         logger.exception("Caught exception fetching url")
+        return
     if result is None or result.content is None:
         logger.error("no content")
 
